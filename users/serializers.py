@@ -4,7 +4,7 @@ from ecommerce_api.models import Cart
 from ecommerce_api.serializers import CartSerializer
 
 class CustomUserSerializer(serializers.ModelSerializer):
-    cart = CartSerializer(many=True, read_only=True)
+    cart = CartSerializer(read_only=True)
     class Meta:
         model = CustomUser
         fields = ['id', 'username', 'password', 'email', 'first_name', 'last_name', 'profilePicture', 'is_superuser' , 'cart']

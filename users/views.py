@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import CustomUser 
 from .serializers import CustomUserSerializer
-from .permissions import CanRetrieveOrListUsers, CanModifyUser
+from .permissions import CanRetrieveUsers, CanModifyUser
 from ecommerce_api.permissions import IsSuperUser
 
 # Create your views here.
@@ -66,9 +66,11 @@ class CustomUserViewSet(GenericViewSet):
     
 
     def get_permissions(self):
-        if self.action in ['list', 'retrieve' , 'destroy']:
-            permission_classes = [CanRetrieveOrListUsers]
-        
+        if self.action in ['list','destroy']:
+            permission_classes = [IsSuperUser]
+        elif self.action == 'retrieve':
+            permission_classes = [CanRetrieveUsers]
+
         elif self.action in ['update', 'partial_update']:
             permission_classes = [CanModifyUser]
         
