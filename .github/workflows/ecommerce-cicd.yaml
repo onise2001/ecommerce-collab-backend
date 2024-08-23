@@ -44,6 +44,6 @@ jobs:
 
           script: |
             cd ecommerce-collab-backend
-            docker-compose down
+            docker compose down
             git pull
-            docker-compose up --detach
+            docker compose up --detach
