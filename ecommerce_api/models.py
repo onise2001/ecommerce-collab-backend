@@ -51,8 +51,8 @@ class Subscription(models.Model):
     price = models.FloatField()
     delivery = models.TextField()
     theBest = models.TextField()
-    firstDelivery = models.TextField() 
-    firstDelivery2 = models.TextField()
+    firstDelivery = models.TextField(blank=True) 
+    firstDelivery2 = models.TextField(blank=True)
     saveUp = models.FloatField()
 
 
