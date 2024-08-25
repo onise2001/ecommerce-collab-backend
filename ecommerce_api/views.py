@@ -3,8 +3,8 @@ from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticatedOrReadOnly, IsAuthenticated
 from .permissions import IsSuperUser, IsOwner, CanModifyCartItem
 #from rest_framework.generics import 
-from .models import Category, Product, Order,Cart, CartItem
-from .serializers import CategorySerializer, ProductSerializer, OrderSerializer, CartSerializer, CartItemSerializer
+from .models import Category, Product, Order,Cart, CartItem, Subscription, FAQ
+from .serializers import CategorySerializer, ProductSerializer, OrderSerializer, CartSerializer, CartItemSerializer, SubscriptionSerializer, FAQSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from .filters import ProductFilter
@@ -196,3 +196,12 @@ class CartViewSet(GenericViewSet):
 
     
 
+class SubscriptionViewSet(ModelViewSet):
+    queryset = Subscription.objects.all()
+    serializer_class = SubscriptionSerializer
+
+
+
+class FAQViewSet(ModelViewSet):
+    queryset = FAQ.objects.all()
+    serializer_class = FAQSerializer

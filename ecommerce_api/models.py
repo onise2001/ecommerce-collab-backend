@@ -43,3 +43,19 @@ class OrderItem(models.Model):
 # class Review(models.Model):
 #     text = models.TextField()
 #     user = 
+
+
+class Subscription(models.Model):
+    image = models.ImageField()
+    category = models.CharField(max_length=100)
+    price = models.FloatField()
+    delivery = models.TextField()
+    theBest = models.TextField()
+    firstDelivery = models.TextField() 
+    firstDelivery2 = models.TextField()
+    saveUp = models.FloatField()
+
+
+class FAQ(models.Model):
+    question = models.TextField()
+    answer = models.TextField()
