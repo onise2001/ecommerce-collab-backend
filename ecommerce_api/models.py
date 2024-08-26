@@ -49,7 +49,7 @@ class Subscription(models.Model):
     image = models.ImageField()
     category = models.CharField(max_length=100)
     price = models.FloatField()
-    delivery = models.TextField()
+    delivery = models.TextField(default="Free Delivery")
     theBest = models.TextField()
     firstDelivery = models.TextField(blank=True) 
     firstDelivery2 = models.TextField(blank=True)

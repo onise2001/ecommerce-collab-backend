@@ -69,6 +69,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class SubscriptionSerializer(serializers.ModelSerializer):
+    delivery = serializers.CharField(read_only=True)
     class Meta:
         model = Subscription
         fields = '__all__'
