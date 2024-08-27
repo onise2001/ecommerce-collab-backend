@@ -8,6 +8,8 @@ from .serializers import CategorySerializer, ProductSerializer, OrderSerializer,
 from rest_framework.response import Response
 from rest_framework import status
 from .filters import ProductFilter
+from django_filters.rest_framework import DjangoFilterBackend
+from django.core.cache import cache
 # Create your views here.
 
 
@@ -15,9 +17,37 @@ from .filters import ProductFilter
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    lookup_field = "pk"
+    cache_time = 60 * 60 * 24
+
+    def list(self, request):
+        data = cache.get('categories')
+        if not data:
+            data = self.serializer_class(self.get_queryset(), many=True).data
+            cache.set('categories', data, self.cache_time)
+        return Response(data, status=status.HTTP_200_OK)
+    
+
+    def retrieve(self, request, pk=None):
+        data = cache.get('categories')
+        if not data:
+            data = self.serializer_class(self.get_queryset(), many=True).data
+            cache.set('categories', data, self.cache_time)
+            
+            instance = self.queryset.get(pk=pk)
+            if instance:
+                instance = self.serializer_class(instance).data
+        
+        else:
+            instance = next((item for item in data if item['id'] == int(pk)), None)
+
+        if instance:
+           return Response(instance, status=status.HTTP_200_OK)
+        
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
     def get_permissions(self):
-        if self.action in ['list', 'retireve']:
+        if self.action in ['list', 'retrieve']:
             permission_classes = [IsAuthenticatedOrReadOnly]
         else:
             permission_classes = [IsSuperUser]
@@ -27,17 +57,45 @@ class CategoryViewSet(ModelViewSet):
 class ProductViewSet(GenericViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    filter_backends = [ProductFilter]
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = ProductFilter
     lookup_field = 'pk'
 
+    cache_time = 60 * 60 * 24
 
+
+
+    def get_cache_key(self,request):
+        category_id = request.query_params.get('category')
+        if not category_id:
+            category_id = "all"
+        return f'category_id={category_id}'
+ 
     def list(self,request):
-        filtered_queryset = self.filter_queryset(queryset=self.queryset)
-        serializer = self.serializer_class(filtered_queryset, many=True)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+        cache_key = self.get_cache_key(request=request)
+        data = cache.get(cache_key)
+        if not data:
+            filtered_queryset = self.filter_queryset(self.get_queryset())
+            serializer = self.serializer_class(filtered_queryset, many=True)
+            data = serializer.data
+
+            if data:
+                cache.set(cache_key, data, self.cache_time)
+
+        return Response(data, status=status.HTTP_200_OK)
     
     def retrieve(self,request, pk=None):
-        instance = self.queryset.get(pk=pk)
+        cached_data = cache.get("category_id=all")
+        if cached_data:
+            #  for item in cached_data:
+            #      print(item['id'] ==  int(pk))
+            instance = next((item for item in cached_data if item['id'] == int(pk)), None)
+
+        else:
+            serializer = self.serializer_class(self.queryset, many=True)
+            cache.set('category_id=all', serializer.data, self.cache_time)
+            instance = self.queryset.get(pk=pk)
+        
         if instance:
             serializer = self.serializer_class(instance)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
@@ -60,6 +118,7 @@ class ProductViewSet(GenericViewSet):
             
             if serializer.is_valid():
                 serializer.save()
+                cache.invalidate
                 return Response(data=serializer.data, status=status.HTTP_200_OK)
             
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -191,6 +250,11 @@ class CartViewSet(GenericViewSet):
         cart = Cart.objects.get(user=request.user)
         serializer = self.get_serializer(cart)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
+    
+
+
+    def destroy(self,request):
+        ...
     
 
 

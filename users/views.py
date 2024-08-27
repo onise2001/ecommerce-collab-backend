@@ -6,6 +6,7 @@ from .models import CustomUser
 from .serializers import CustomUserSerializer
 from .permissions import CanRetrieveUsers, CanModifyUser
 from ecommerce_api.permissions import IsSuperUser
+from .filters import CustomUserFilter
 
 # Create your views here.
 
@@ -77,4 +78,26 @@ class CustomUserViewSet(GenericViewSet):
         else:
             permission_classes = []
 
+        return [permission() for permission in permission_classes]
+    
+
+
+
+
+class CustomUserViewForUser(GenericViewSet):
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
+    #filter_backends = [CustomUserFilter]
+
+    def list(self, request):
+        serializer = self.serializer_class(request.user)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+    
+
+    
+
+    def get_permissions(self):
+        if self.action == "list":
+            permission_classes = [CanModifyUser]
+        
         return [permission() for permission in permission_classes]
