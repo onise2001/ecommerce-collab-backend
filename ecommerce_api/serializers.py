@@ -45,26 +45,41 @@ class CartSerializer(serializers.ModelSerializer):
 
 
 
-
-class OrderItemSerializer(serializers.ModelSerializer):
-    product = CartItemSerializer(read_only=True)
+class OrderItemSerializer(WritableNestedModelSerializer):
+    product = ProductSerializer(read_only=True, )
     product_id = serializers.PrimaryKeyRelatedField(
-            queryset=CartItem.objects.all(),
+            queryset=Product.objects.all(),
             write_only=True,
             source="product"
         )
     class Meta:
         model = OrderItem
         fields = '__all__'
+        extra_kwargs = { 'order':{'read_only': True}}
 
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    items = OrderItemSerializer(many=True, write_only=True)
+    items = OrderItemSerializer(many=True, required=False)
     class Meta:
         model = Order
-        fields = '__all__'
+        fields = ['id','recipientName','recipientPhoneNumber','dateOfDelivery','deliveryTime','street','houseNumber','total','user', 'items' ]
+        extra_kwargs = { 'user': {'read_only':True}}
 
+    
+    def create(self,validated_data):
+        order_items = validated_data.pop('items')
+        new_order = super().create(validated_data)
+
+        for item in order_items:
+            OrderItem.objects.create(order=new_order, **item)
+        
+        
+        return new_order
+    
+
+    
+        
 
 
 

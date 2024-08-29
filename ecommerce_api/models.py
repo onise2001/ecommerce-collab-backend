@@ -18,6 +18,17 @@ class Product(models.Model):
     image = models.ImageField()
 
 
+class Cart(models.Model):
+    user = models.ForeignKey(to=('users.CustomUser'), on_delete=models.CASCADE)
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, related_name='items',on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.FloatField()
+
+
+
+
 class Order(models.Model):
     recipientName = models.CharField(max_length=255)
     recipientPhoneNumber = models.CharField(max_length=50)
@@ -28,17 +39,12 @@ class Order(models.Model):
     total = models.FloatField()
     user = models.ForeignKey(to=('users.CustomUser'), on_delete=models.CASCADE)
 
-class Cart(models.Model):
-    user = models.ForeignKey(to=('users.CustomUser'), on_delete=models.CASCADE)
 
-class CartItem(models.Model):
-    cart = models.ForeignKey(Cart, related_name='items',on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.FloatField()
 
 class OrderItem(models.Model):
-    product = models.ForeignKey(Product, related_name='items' ,on_delete=models.CASCADE)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    quantity = models.FloatField()
 
 
 
@@ -78,6 +84,5 @@ def clear_category_cache(sender, instance, **kwargs):
 @receiver(post_save, sender=Product)
 @receiver(post_delete, sender=Product)
 def clear_product_cache(sender, instance, **kwargs):
+    cache.delete(f'category_id={instance.category.id}')
     cache.delete('category_id=all')
-    for category in Category.objects.all():
-        cache.delete(f'category_id={category.id}')

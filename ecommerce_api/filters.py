@@ -12,6 +12,13 @@ class ProductFilter(django_filters.FilterSet):
         fields = ['search', 'category']
 
 
+class OrderFilter(BaseFilterBackend):
+
+    def filter_queryset(self, request, queryset, view):
+        queryset = queryset.filter(user=request.user)
+        return queryset
+
+
     # def filter_queryset(self, request, queryset, view):
     #     search = request.query_params.get('search')
     #     category = request.query_params.get('category')

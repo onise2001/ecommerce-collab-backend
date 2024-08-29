@@ -1,17 +1,20 @@
 from django.shortcuts import render
-from rest_framework.viewsets import GenericViewSet, ModelViewSet
+from rest_framework.viewsets import GenericViewSet, ModelViewSet, mixins
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticatedOrReadOnly, IsAuthenticated
 from .permissions import IsSuperUser, IsOwner, CanModifyCartItem
 #from rest_framework.generics import 
-from .models import Category, Product, Order,Cart, CartItem, Subscription, FAQ
-from .serializers import CategorySerializer, ProductSerializer, OrderSerializer, CartSerializer, CartItemSerializer, SubscriptionSerializer, FAQSerializer
+from .models import Category, Product, Order,Cart, CartItem , OrderItem, Subscription, FAQ
+from .serializers import CategorySerializer, ProductSerializer, OrderSerializer, CartSerializer, CartItemSerializer , OrderItemSerializer, SubscriptionSerializer, FAQSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from .filters import ProductFilter
+from .filters import ProductFilter, OrderFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from django.core.cache import cache
 # Create your views here.
 
+
+
+# Test OrderViewSet Thoroughly, add permissions on FAQ and Subscription ViewSets, add filters on orderviewset so user sees only their orders, ask chatgpt if what i am doint with CustomUserViewSetForUSers is a good approach
 
 
 class CategoryViewSet(ModelViewSet):
@@ -87,18 +90,19 @@ class ProductViewSet(GenericViewSet):
     def retrieve(self,request, pk=None):
         cached_data = cache.get("category_id=all")
         if cached_data:
-            #  for item in cached_data:
-            #      print(item['id'] ==  int(pk))
             instance = next((item for item in cached_data if item['id'] == int(pk)), None)
 
         else:
             serializer = self.serializer_class(self.queryset, many=True)
             cache.set('category_id=all', serializer.data, self.cache_time)
             instance = self.queryset.get(pk=pk)
+            if instance:
+                serializer = self.serializer_class(instance)
+                instance = serializer.data
         
         if instance:
-            serializer = self.serializer_class(instance)
-            return Response(data=serializer.data, status=status.HTTP_200_OK)
+            return Response(data=instance, status=status.HTTP_200_OK)
+
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 
@@ -160,32 +164,71 @@ class ProductViewSet(GenericViewSet):
 
 
 
-class OrderViewSet(GenericViewSet):
+class OrderViewSet(GenericViewSet, mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.UpdateModelMixin):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    filter_backends = [OrderFilter]
     lookup_field = 'pk'
 
+    cache_time = 60 * 60
+    cache_key ='orders_user_'
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def get_serializer_context(self):
+        return {'request': self.request}
+
+
+
     def list(self,request):
-        filtered_queryset = self.filter_queryset(queryset=self.queryset)
-        serializer = self.serializer_class(filtered_queryset, many=True)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+        orders = cache.get(f'{self.cache_key}{request.user.id}')
+
+        if not orders:
+            serializer =  self.filter_queryset(queryset=self.queryset)
+            orders = serializer.data
+            cache.set(f'orders_user_{request.user.id}', orders, self.cache_time)
+
+        return Response(data=orders, status=status.HTTP_200_OK)
     
 
     def retrieve(self,request, pk=None):
-        instance = self.queryset.get(pk=pk)
-        if instance:
-            serializer = self.serializer_class(instance)
-            return Response(data=serializer.data, status=status.HTTP_200_OK)
+        orders = cache.get(f'{self.cache_key}{request.user.id}')
+
+        if not orders:
+            orders = self.serializer_class(self.queryset, many=True)
+            cache.set(f'{self.cache_key}{request.user.id}', orders.data, self.cache_time)
+
+            instance = self.queryset.get(pk=pk)
+            if instance:
+                serializer = self.serializer_class(instance)
+                instance = serializer.data
+            
+        else:
+            instance = next()
+            
+            
+        
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+
         
         return Response(status=status.HTTP_404_NOT_FOUND) 
 
+    
+    
+    
     def create(self,request):
-        serializer = self.serializer_class(data=request.data)
+        print(request.user.id)
+        serializer = self.serializer_class(data=request.data, context=self.get_serializer_context())
         if serializer.is_valid():
-            serializer.save()
+            self.perform_create(serializer)
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+  
+  
+  
+  
     def update(self,request, pk=None):
         instance = self.queryset.get(pk=pk)
         if instance:
@@ -217,13 +260,76 @@ class OrderViewSet(GenericViewSet):
         
         return Response(status=status.HTTP_404_NOT_FOUND)
     
+
+
+    
     def get_permissions(self):
         if self.action == 'create':
-            permission_classes = IsAuthenticated
+            permission_classes = [IsAuthenticated]
         else:
             permission_classes = [IsOwner | IsSuperUser]
         
         return [permission() for permission in permission_classes]
+    
+
+
+class OrderItemViewSet(GenericViewSet):
+    queryset = OrderItem.objects.all()
+    serializer_class = OrderItemSerializer
+    lookup_field = "pk"
+
+
+    def list(self,request):
+        serializer = self.serializer_class(self.queryset, many=True)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+    
+
+    def retrieve(self,request,pk=None):
+        instance = self.get_object()
+        if instance:
+            serializer = self.serializer_class(instance)
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+        
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+
+    def update(self,request, pk=None):
+        instance = self.get_object()
+
+        if instance:
+            serializer = self.serializer_class(instance=instance, data=request.data)
+            
+            if serializer.is_valid():
+                serializer.save()
+                return Response(data=serializer.data, status=status.HTTP_200_OK)
+            
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    
+    def partial_update(self,request, pk=None):
+        instance = self.get_object()
+
+        if instance:
+            serializer = self.serializer_class(instance=instance, data=request.data, partial=True)
+            
+            if serializer.is_valid():
+                serializer.save()
+                return Response(data=serializer.data, status=status.HTTP_200_OK)
+            
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+    def destroy(self,request,pk=None):
+        instance = self.get_object()
+
+        if instance:
+            instance.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+        return Response(status=status.HTTP_404_NOT_FOUND)
     
 
 class CartItemViewSet(ModelViewSet):
@@ -234,6 +340,16 @@ class CartItemViewSet(ModelViewSet):
     def perform_create(self, serializer):
         cart = Cart.objects.get(user=self.request.user)
         serializer.save(cart=cart)
+        cache.delete(f'cart_{self.request.user.id}') 
+
+    
+    def perform_update(self, serializer):
+        super().perform_update(serializer)
+        cache.delete(f'cart_{self.request.user.id}') 
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+        cache.delete(f'cart_{self.request.user.id}')  
 
 
 
@@ -242,16 +358,22 @@ class CartViewSet(GenericViewSet):
     serializer_class = CartSerializer
     permission_classes = [IsAuthenticated]
 
-
-    def get_queryset(self):
-        queryset = Cart.objects.filter(user=self.request.user)
+    cache_time = 60 * 60
 
     def list(self, request):
-        cart = Cart.objects.get(user=request.user)
-        serializer = self.get_serializer(cart)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
-    
+        cache_key = f'cart_{self.request.user.id}'
+        cart = cache.get(cache_key)
+        if not cart:
+            cart,_ = Cart.objects.get_or_create(user=request.user)
+            cart = self.get_serializer(cart).data
+            cache.set(cache_key, cart, self.cache_time )
 
+        
+        
+        return Response(data=cart, status=status.HTTP_200_OK)
+        
+    
+    
 
     def destroy(self,request):
         ...
