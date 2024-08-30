@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework.viewsets import GenericViewSet, ModelViewSet, mixins
+from rest_framework.generics import ListAPIView
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticatedOrReadOnly, IsAuthenticated
 from .permissions import IsSuperUser, IsOwner, CanModifyCartItem
 #from rest_framework.generics import 
@@ -10,6 +11,7 @@ from rest_framework import status
 from .filters import ProductFilter, OrderFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from django.core.cache import cache
+import random
 # Create your views here.
 
 
@@ -185,7 +187,8 @@ class OrderViewSet(GenericViewSet, mixins.CreateModelMixin, mixins.RetrieveModel
         orders = cache.get(f'{self.cache_key}{request.user.id}')
 
         if not orders:
-            serializer =  self.filter_queryset(queryset=self.queryset)
+            queryset = self.filter_queryset(queryset=self.queryset)
+            serializer = self.serializer_class(queryset,)
             orders = serializer.data
             cache.set(f'orders_user_{request.user.id}', orders, self.cache_time)
 
@@ -205,13 +208,12 @@ class OrderViewSet(GenericViewSet, mixins.CreateModelMixin, mixins.RetrieveModel
                 instance = serializer.data
             
         else:
-            instance = next()
+            instance = next((item for item in orders if item['id'] == int(pk)), None)
             
             
-        
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+        if instance:
+            return Response(data=instance, status=status.HTTP_200_OK)
 
-        
         return Response(status=status.HTTP_404_NOT_FOUND) 
 
     
@@ -379,6 +381,53 @@ class CartViewSet(GenericViewSet):
         ...
     
 
+
+class MayAlsoLike(ListAPIView):
+    serializer_class = ProductSerializer
+    
+    def list(self, request, *args, **kwargs):
+        data = cache.get('category_id=all')
+        cache_time = 60 * 60 * 24
+
+        if not data:
+            products = Product.objects.all()
+            serializer = self.serializer_class(products, many=True)
+            data = serializer.data
+            cache.set('category_id=all', data, cache_time)
+
+       # data = list(data)
+
+        if len(data) >= 4:
+            random.shuffle(list(data))
+            response = data[:1]
+        else:
+            response = data
+        
+        return Response(data=response, status=status.HTTP_200_OK)
+        
+
+
+class PopularWith(ListAPIView):
+    def list(self, request, *args, **kwargs):
+        data = cache.get('category_id=all')
+        cache_time = 60 * 60 * 24
+
+        if not data:
+            products = Product.objects.all()
+            serializer = self.serializer_class(products, many=True)
+            data = serializer.data
+            cache.set('category_id=all', data,cache_time)
+
+
+        #data = list(data)
+        
+        if len(data)> 10:
+            random.shuffle(list(data))
+            response = data[:10]
+        else: 
+            response = data
+        
+        return Response(data=response, status=status.HTTP_200_OK)
 
     
 
