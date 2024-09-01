@@ -8,7 +8,7 @@ from .models import Category, Product, Order,Cart, CartItem , OrderItem, Subscri
 from .serializers import CategorySerializer, ProductSerializer, OrderSerializer, CartSerializer, CartItemSerializer , OrderItemSerializer, SubscriptionSerializer, FAQSerializer, AddressSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from .filters import ProductFilter, OrderFilter
+from .filters import ProductFilter, OrderFilter, AddressFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from django.core.cache import cache
 import random
@@ -439,8 +439,10 @@ class FAQViewSet(ModelViewSet):
 
 
 class AddressViewSet(ModelViewSet):
-    queryset = Address.objects.all()
+    queryset=Address.objects.all()
     serializer_class = AddressSerializer
+    filter_backends = [AddressFilter]
+
     lookup_field = 'pk'
 
     def perform_create(self, serializer):
@@ -455,6 +457,14 @@ class AddressViewSet(ModelViewSet):
         super().perform_destroy(instance)
         cache.delete(f'cart_{self.request.user.id}')  
 
+
+
+    def list(self, request, *args, **kwargs):
+        address = self.queryset.get(user=request.user)
+        if address:
+            serializer= self.serializer_class(address)
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 
