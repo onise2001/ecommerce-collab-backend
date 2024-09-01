@@ -12,12 +12,13 @@ from .filters import ProductFilter, OrderFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from django.core.cache import cache
 import random
+from copy import deepcopy
 # Create your views here.
 
 
 
 # Test OrderViewSet Thoroughly, add permissions on FAQ and Subscription ViewSets, add filters on orderviewset so user sees only their orders, ask chatgpt if what i am doint with CustomUserViewSetForUSers is a good approach
-
+# Write Address viewset
 
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
@@ -384,51 +385,43 @@ class CartViewSet(GenericViewSet):
     
 
 
-class MayAlsoLike(ListAPIView):
-    serializer_class = ProductSerializer
-    
-    def list(self, request, *args, **kwargs):
+
+
+
+def randomProduct(amount):
         data = cache.get('category_id=all')
         cache_time = 60 * 60 * 24
 
         if not data:
             products = Product.objects.all()
-            serializer = self.serializer_class(products, many=True)
+            serializer = ProductSerializer(products, many=True)
             data = serializer.data
             cache.set('category_id=all', data, cache_time)
 
-       # data = list(data)
+        shuffle_data = data.copy()
 
-        if len(data) >= 4:
-            random.shuffle(list(data))
-            response = data[:1]
+        if len(shuffle_data) >= amount:
+            random.shuffle(shuffle_data)
+            response = shuffle_data[:amount]
         else:
             response = data
         
-        return Response(data=response, status=status.HTTP_200_OK)
+        return response
+
+
+
+class MayAlsoLike(ListAPIView):
+    serializer_class = ProductSerializer
+    
+    def list(self, request, *args, **kwargs):
+        data = randomProduct(4)
+        return Response(data=data, status=status.HTTP_200_OK)
         
 
 
 class PopularWith(ListAPIView):
     def list(self, request, *args, **kwargs):
-        data = cache.get('category_id=all')
-        cache_time = 60 * 60 * 24
-
-        if not data:
-            products = Product.objects.all()
-            serializer = self.serializer_class(products, many=True)
-            data = serializer.data
-            cache.set('category_id=all', data,cache_time)
-
-
-        #data = list(data)
-        
-        if len(data)> 10:
-            random.shuffle(list(data))
-            response = data[:10]
-        else: 
-            response = data
-        
+        response = randomProduct(10)
         return Response(data=response, status=status.HTTP_200_OK)
 
     
