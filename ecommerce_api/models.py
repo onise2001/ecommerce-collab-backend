@@ -71,6 +71,16 @@ class FAQ(models.Model):
 
 
 
+class Address(models.Model):
+    city = models.CharField(max_length=255)
+    houseNumber = models.CharField(max_length=255)
+    street = models.CharField(max_length=255)
+    note = models.TextField(blank=True)
+    user = models.OneToOneField(to="users.CustomUser", on_delete=models.CASCADE, related_name="address")
+
+
+
+
 
 
 @receiver(post_save, sender=Category)

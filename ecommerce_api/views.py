@@ -4,8 +4,8 @@ from rest_framework.generics import ListAPIView
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticatedOrReadOnly, IsAuthenticated
 from .permissions import IsSuperUser, IsOwner, CanModifyCartItem
 #from rest_framework.generics import 
-from .models import Category, Product, Order,Cart, CartItem , OrderItem, Subscription, FAQ
-from .serializers import CategorySerializer, ProductSerializer, OrderSerializer, CartSerializer, CartItemSerializer , OrderItemSerializer, SubscriptionSerializer, FAQSerializer
+from .models import Category, Product, Order,Cart, CartItem , OrderItem, Subscription, FAQ, Address
+from .serializers import CategorySerializer, ProductSerializer, OrderSerializer, CartSerializer, CartItemSerializer , OrderItemSerializer, SubscriptionSerializer, FAQSerializer, AddressSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from .filters import ProductFilter, OrderFilter
@@ -435,3 +435,34 @@ class SubscriptionViewSet(ModelViewSet):
 class FAQViewSet(ModelViewSet):
     queryset = FAQ.objects.all()
     serializer_class = FAQSerializer
+
+
+
+class AddressViewSet(ModelViewSet):
+    queryset = Address.objects.all()
+    serializer_class = AddressSerializer
+    lookup_field = 'pk'
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    
+    def perform_update(self, serializer):
+        super().perform_update(serializer)
+        cache.delete(f'cart_{self.request.user.id}') 
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+        cache.delete(f'cart_{self.request.user.id}')  
+
+
+
+
+    def get_permissions(self):
+
+        if self.action in ['list', 'retrieve', 'head', 'options']:
+            permission_classes = [IsAuthenticated]
+        else:
+            permission_classes = [IsOwner]
+
+        return [permission() for permission in permission_classes]
