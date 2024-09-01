@@ -188,13 +188,15 @@ class OrderViewSet(GenericViewSet, mixins.CreateModelMixin, mixins.RetrieveModel
 
         if not orders:
             queryset = self.filter_queryset(queryset=self.queryset)
-            serializer = self.serializer_class(queryset,)
+            serializer = self.serializer_class(queryset,many=True)
             orders = serializer.data
             cache.set(f'orders_user_{request.user.id}', orders, self.cache_time)
 
         return Response(data=orders, status=status.HTTP_200_OK)
     
 
+
+    # Fix This
     def retrieve(self,request, pk=None):
         orders = cache.get(f'{self.cache_key}{request.user.id}')
 
