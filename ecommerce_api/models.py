@@ -80,6 +80,12 @@ class Address(models.Model):
 
 
 
+class Review(models.Model):
+    text = models.TextField()
+    name = models.CharField(max_length=255)
+
+
+
 
 
 

@@ -4,8 +4,8 @@ from rest_framework.generics import ListAPIView
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticatedOrReadOnly, IsAuthenticated
 from .permissions import IsSuperUser, IsOwner, CanModifyCartItem
 #from rest_framework.generics import 
-from .models import Category, Product, Order,Cart, CartItem , OrderItem, Subscription, FAQ, Address
-from .serializers import CategorySerializer, ProductSerializer, OrderSerializer, CartSerializer, CartItemSerializer , OrderItemSerializer, SubscriptionSerializer, FAQSerializer, AddressSerializer
+from .models import Category, Product, Order,Cart, CartItem , OrderItem, Subscription, FAQ, Address, Review
+from .serializers import CategorySerializer, ProductSerializer, OrderSerializer, CartSerializer, CartItemSerializer , OrderItemSerializer, SubscriptionSerializer, FAQSerializer, AddressSerializer, ReviewSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from .filters import ProductFilter, OrderFilter
@@ -87,6 +87,11 @@ class ProductViewSet(GenericViewSet):
 
             if data:
                 cache.set(cache_key, data, self.cache_time)
+        
+        
+        search_term = request.query_params.get('name')
+        if search_term:
+            data = [item for item in data if search_term.lower() in item['name'].lower()]
 
         return Response(data, status=status.HTTP_200_OK)
     
@@ -380,32 +385,36 @@ class CartViewSet(GenericViewSet):
     
     
 
-    def destroy(self,request):
-        ...
+    def destroy(self,request, pk=None):
+        CartItem.objects.filter(cart=request.user.cart_set.first().id).delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     
 
 
 
 
 
-def randomProduct(amount):
-        data = cache.get('category_id=all')
-        cache_time = 60 * 60 * 24
+def randomProduct(amount, cache_key):
+        data = cache.get(cache_key)
+        cache_time = 60 * 60 
 
         if not data:
-            products = Product.objects.all()
-            serializer = ProductSerializer(products, many=True)
-            data = serializer.data
-            cache.set('category_id=all', data, cache_time)
+            data = cache.get('category_id=all')
+            if not data:
+                products = Product.objects.all()
+                serializer = ProductSerializer(products, many=True)
+                data = serializer.data
 
         shuffle_data = data.copy()
 
         if len(shuffle_data) >= amount:
             random.shuffle(shuffle_data)
             response = shuffle_data[:amount]
+            cache.set(cache_key, response, cache_time)
+
         else:
             response = data
-        
+
         return response
 
 
@@ -414,14 +423,14 @@ class MayAlsoLike(ListAPIView):
     serializer_class = ProductSerializer
     
     def list(self, request, *args, **kwargs):
-        data = randomProduct(4)
+        data = randomProduct(4,"also_like")
         return Response(data=data, status=status.HTTP_200_OK)
         
 
 
 class PopularWith(ListAPIView):
     def list(self, request, *args, **kwargs):
-        response = randomProduct(10)
+        response = randomProduct(10,"popular_with")
         return Response(data=response, status=status.HTTP_200_OK)
 
     
@@ -429,13 +438,28 @@ class PopularWith(ListAPIView):
 class SubscriptionViewSet(ModelViewSet):
     queryset = Subscription.objects.all()
     serializer_class = SubscriptionSerializer
+    
 
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = [IsAuthenticatedOrReadOnly]
+        else:
+            permission_classes = [IsSuperUser]
+        
+        return [permission() for permission in permission_classes]
 
 
 class FAQViewSet(ModelViewSet):
     queryset = FAQ.objects.all()
     serializer_class = FAQSerializer
 
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = [IsAuthenticatedOrReadOnly]
+        else:
+            permission_classes = [IsSuperUser]
+        
+        return [permission() for permission in permission_classes]
 
 
 class AddressViewSet(ModelViewSet):
@@ -446,17 +470,6 @@ class AddressViewSet(ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-
-    
-    def perform_update(self, serializer):
-        super().perform_update(serializer)
-        cache.delete(f'cart_{self.request.user.id}') 
-
-    def perform_destroy(self, instance):
-        super().perform_destroy(instance)
-        cache.delete(f'cart_{self.request.user.id}')  
-
-
 
     def list(self, request, *args, **kwargs):
         address = self.queryset.get(user=request.user)
@@ -474,3 +487,57 @@ class AddressViewSet(ModelViewSet):
             permission_classes = [IsOwner]
 
         return [permission() for permission in permission_classes]
+    
+
+
+
+
+class ReviewViewSet(GenericViewSet,mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.UpdateModelMixin):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+    lookup_field = "pk"
+
+    cache_key="reviews"
+    cache_time= 60 * 60
+
+    def perform_create(self, serializer):
+        serializer.save(name=f'{self.request.user.first_name}{self.request.user.last_name}')
+
+
+    def list(self,request):
+        data = cache.get(self.cache_key)
+        
+        if not data:
+            serializer = self.serializer_class(self.queryset, many=True)
+            data = serializer.data
+            cache.set(self.cache_key, data,self.cache_time)
+        
+
+        if len(data) > 3:
+            shuffle_data = data.copy()
+            random.shuffle(shuffle_data)
+            data = shuffle_data[:3]
+        
+        return Response(data=data, status=status.HTTP_200_OK)
+
+
+
+
+
+    def create(self,request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            self.perform_create(serializer)
+            return Response(status=status.HTTP_201_CREATED)
+        
+        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+    def destroy(self,request,pk=None):
+        instance = self.get_object()
+
+        if instance:
+            instance.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_404_NOT_FOUND)

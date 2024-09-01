@@ -1,6 +1,6 @@
 from django.urls import path,include
 from rest_framework.routers import DefaultRouter
-from .views import ProductViewSet, CategoryViewSet, OrderViewSet, CartViewSet, CartItemViewSet, OrderItemViewSet, SubscriptionViewSet, FAQViewSet, MayAlsoLike, PopularWith, AddressViewSet
+from .views import ProductViewSet, CategoryViewSet, OrderViewSet, CartViewSet, CartItemViewSet, OrderItemViewSet, SubscriptionViewSet, FAQViewSet, MayAlsoLike, PopularWith, AddressViewSet,ReviewViewSet
 
 router = DefaultRouter(trailing_slash=False)
 router.register(r'product', ProductViewSet)
@@ -12,6 +12,7 @@ router.register(r'order-item', OrderItemViewSet)
 router.register(r'subscription', SubscriptionViewSet)
 router.register(r'faq', FAQViewSet)
 router.register(r'address', AddressViewSet)
+router.register(r'reviews', ReviewViewSet)
 
 
 urlpatterns = [

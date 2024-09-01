@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, Product, Order, OrderItem,Cart, CartItem, Subscription, FAQ, Address
+from .models import Category, Product, Order, OrderItem,Cart, CartItem, Subscription, FAQ, Address, Review
 from drf_writable_nested.serializers import WritableNestedModelSerializer
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -99,3 +99,13 @@ class AddressSerializer(serializers.ModelSerializer):
         model = Address
         fields = ['id', 'city','houseNumber', 'street', 'note']
         extra_kwarg = {'user': {'read_only': True}}
+
+
+    
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['id', 'text', 'name']
+        extra_kwargs = {'name':{'read_only': True}}

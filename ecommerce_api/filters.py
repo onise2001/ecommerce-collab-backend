@@ -3,13 +3,13 @@ import django_filters
 from .models import Product
 
 class ProductFilter(django_filters.FilterSet):
-    search = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
+    name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
     category = django_filters.NumberFilter(field_name='category__id')
 
 
     class Meta:
         model = Product
-        fields = ['search', 'category']
+        fields = ['name', 'category']
 
 
 class OrderFilter(BaseFilterBackend):
