@@ -8,7 +8,7 @@ from .models import Category, Product, Order,Cart, CartItem , OrderItem, Subscri
 from .serializers import CategorySerializer, ProductSerializer, OrderSerializer, CartSerializer, CartItemSerializer , OrderItemSerializer, SubscriptionSerializer, FAQSerializer, AddressSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from .filters import ProductFilter, OrderFilter, AddressFilter
+from .filters import ProductFilter, OrderFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from django.core.cache import cache
 import random
