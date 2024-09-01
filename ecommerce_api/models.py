@@ -86,3 +86,11 @@ def clear_category_cache(sender, instance, **kwargs):
 def clear_product_cache(sender, instance, **kwargs):
     cache.delete(f'category_id={instance.category.id}')
     cache.delete('category_id=all')
+
+
+
+@receiver(post_save, sender=Order)
+@receiver(post_delete, sender=Order)
+def clear_product_cache(sender, instance, **kwargs):
+    cache.delete(f'order_user_{instance.user.id}')
+  
