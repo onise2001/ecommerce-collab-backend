@@ -441,7 +441,6 @@ class FAQViewSet(ModelViewSet):
 class AddressViewSet(ModelViewSet):
     queryset=Address.objects.all()
     serializer_class = AddressSerializer
-    filter_backends = [AddressFilter]
 
     lookup_field = 'pk'
 
@@ -465,8 +464,7 @@ class AddressViewSet(ModelViewSet):
             serializer= self.serializer_class(address)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
         return Response(status=status.HTTP_404_NOT_FOUND)
-
-
+    
 
     def get_permissions(self):
 
