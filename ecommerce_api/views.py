@@ -19,6 +19,7 @@ from copy import deepcopy
 
 # Test OrderViewSet Thoroughly, add permissions on FAQ and Subscription ViewSets, add filters on orderviewset so user sees only their orders, ask chatgpt if what i am doint with CustomUserViewSetForUSers is a good approach
 # Write Address viewset
+# Tell baqar abot change to CartItemViewSet and go over your code carfully, optimize it as much as possible, remember to try and fix checkout issua with token checking
 
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
@@ -347,10 +348,19 @@ class CartItemViewSet(ModelViewSet):
     serializer_class = CartItemSerializer
     permission_classes = [CanModifyCartItem | IsSuperUser]
 
+
+    def get_cart(self):
+        user = self.request.user
+        cart, created = Cart.objects.get_or_create(user=user)
+        return cart
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['cart'] = self.get_cart()
+        return context
+
     def perform_create(self, serializer):
-        cart = Cart.objects.get(user=self.request.user)
-        serializer.save(cart=cart)
-        cache.delete(f'cart_{self.request.user.id}') 
+        serializer.save()
 
     
     def perform_update(self, serializer):
