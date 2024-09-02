@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import CustomUser
+from .models import CustomUser, PasswordRecovery
 from ecommerce_api.models import Cart
 from ecommerce_api.serializers import CartSerializer
 
@@ -19,3 +19,11 @@ class CustomUserSerializer(serializers.ModelSerializer):
         new_user.save()
         Cart.objects.create(user=new_user)
         return new_user
+    
+
+
+
+class PasswordRecoverySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PasswordRecovery
+        fields = '__all__'

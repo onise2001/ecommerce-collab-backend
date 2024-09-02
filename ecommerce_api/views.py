@@ -376,7 +376,7 @@ class CartItemViewSet(ModelViewSet):
 
 class CartViewSet(GenericViewSet):
     serializer_class = CartSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsOwner]
 
     cache_time = 60 * 60
 
@@ -399,7 +399,6 @@ class CartViewSet(GenericViewSet):
         CartItem.objects.filter(cart=request.user.cart_set.first().id).delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-
 
 
 
