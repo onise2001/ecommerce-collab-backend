@@ -36,17 +36,16 @@ class CartItemSerializer(WritableNestedModelSerializer):
         extra_kwargs = {'id': {'read_only': True}}
 
 
-    def create(self,valdiated_data):
+    def create(self,validated_data):
         cart = self.context.get('cart')
-        product_id = valdiated_data.get('product')
-        print(product_id)
-        print(cart)
+        product_id = validated_data.get('product')
+        validated_data['cart'] = cart
 
 
         if CartItem.objects.filter(cart=cart, product__id=product_id.id).exists():
             raise serializers.ValidationError('This Product is already in cart')
         
-        new_cart_item = CartItem.objects.create(**valdiated_data)
+        new_cart_item = CartItem.objects.create(**validated_data)
 
         
         return new_cart_item
