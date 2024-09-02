@@ -12,7 +12,6 @@ from .filters import ProductFilter, OrderFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from django.core.cache import cache
 import random
-from copy import deepcopy
 # Create your views here.
 
 
