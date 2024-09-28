@@ -25,9 +25,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: run migrations
-        run: python manage.py migrate
-
   deploy:
     name: deploy to digitalocean
     runs-on: ubuntu-latest
