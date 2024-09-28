@@ -1,0 +1,2413 @@
+[
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": { "app_label": "admin", "model": "logentry" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": { "app_label": "auth", "model": "permission" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": { "app_label": "auth", "model": "group" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": { "app_label": "contenttypes", "model": "contenttype" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": { "app_label": "sessions", "model": "session" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": { "app_label": "ecommerce_api", "model": "category" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": { "app_label": "ecommerce_api", "model": "cart" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": { "app_label": "ecommerce_api", "model": "order" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": { "app_label": "ecommerce_api", "model": "product" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": { "app_label": "ecommerce_api", "model": "orderitem" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": { "app_label": "ecommerce_api", "model": "cartitem" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": { "app_label": "users", "model": "customuser" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": { "app_label": "ecommerce_api", "model": "faq" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": { "app_label": "ecommerce_api", "model": "subscription" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": { "app_label": "ecommerce_api", "model": "address" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": { "app_label": "ecommerce_api", "model": "review" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": { "app_label": "users", "model": "passwordrecovery" }
+  },
+
+  {
+    "model": "users.customuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$PdOq9HFcoWOTsbvW8qO7JJ$F1k9P5fHZ3DKl+aSOA7UvQjhWS+QhZVKhFe2JlyiKbI=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-08-23T13:59:25.671Z",
+      "profilePicture": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$1UPXRBWVgfZgMir7WhjtQU$HaBkK7WOXy3U3D6ofF00cy2UfZJpRTqvdgaD75Mo4hY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "onise2001",
+      "first_name": "onise",
+      "last_name": "Babulashvili",
+      "email": "onise.bab@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-23T14:24:11.523Z",
+      "profilePicture": "1721714784023.jpeg",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$5v4H331WrhkMRRScsnFHkD$xwHo08otUKuJFNoLkJb9J45UgnjNCrk8DEt1ay3EHuw=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "baqari",
+      "first_name": "baqari",
+      "last_name": "baqari",
+      "email": "baqarifruidze@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-27T15:53:50.343Z",
+      "profilePicture": "440983495_832393478926251_6464928467810464646_n.jpg",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$j3Oe3YhTiYeDNuFg50Teg1$vjxTWi6YXr7xRRMParfDnds0oJbq1g4MMZeWmTnq6dM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "kone",
+      "first_name": "baqari",
+      "last_name": "fruidze",
+      "email": "baqarifruidze@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-27T15:58:19.377Z",
+      "profilePicture": "441052950_958440282413162_6317288244732317550_n.jpg",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$4B09F9rAIAdWDdQO6zYPBo$Pvbm0S0EFlBnMLqUAKwxdTkFRRC5Not570Gavdw7jWY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "katrina",
+      "first_name": "katrina",
+      "last_name": "katrina",
+      "email": "katrinazuus@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-29T13:09:22.221Z",
+      "profilePicture": "6436a36c9d977d7032eb51ee_happiness-image-placeholder_lx1a04.jpg",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$v2POIph4ziU9tBTESTbFQO$hSgZgkQMxcKeCb1kSp3tHuYK7dWQgWdp2XPvCnlkly4=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "katerina",
+      "first_name": "Katrina",
+      "last_name": "Zuus",
+      "email": "katrinazuus@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-29T20:29:10.286Z",
+      "profilePicture": "4.jpg",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$UlqK25GaY9egtnQWNCV29C$2sbxlHXViJO3y8XRaV1yrAxIeNWD+/wTjawsARBWc00=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "kato",
+      "first_name": "kato",
+      "last_name": "zusi",
+      "email": "katrinazuus@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-02T18:57:05.340Z",
+      "profilePicture": "6436a36c9d977d7032eb51ee_happiness-image-placeholder_lx1a04.webp",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$B9T14obI0C188ZVzRaWL42$0oQymP1lcLSBt0nahrfm1Tyv5LI9jcif5AJ2iSeonhU=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "aniAvazneli",
+      "first_name": "ani",
+      "last_name": "avazneli",
+      "email": "aniavazneli@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-02T19:18:52.873Z",
+      "profilePicture": "457137721_941391261336163_8373750357876550796_n.jpg",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$MWUUqd7EdnTHcYoZy5f1pu$3KsQa1K8ptsxW8Hzhc6ye9cHcLu9EEiIQhSB6JpzEsY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "anizaridze",
+      "first_name": "ani",
+      "last_name": "zaridze",
+      "email": "katrinazuus@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-04T09:30:43.808Z",
+      "profilePicture": "6442512f0b353c7303729616_image-p-800.png",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add category",
+      "content_type": 6,
+      "codename": "add_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change category",
+      "content_type": 6,
+      "codename": "change_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete category",
+      "content_type": 6,
+      "codename": "delete_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view category",
+      "content_type": 6,
+      "codename": "view_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add cart",
+      "content_type": 7,
+      "codename": "add_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change cart",
+      "content_type": 7,
+      "codename": "change_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete cart",
+      "content_type": 7,
+      "codename": "delete_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view cart",
+      "content_type": 7,
+      "codename": "view_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add order",
+      "content_type": 8,
+      "codename": "add_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change order",
+      "content_type": 8,
+      "codename": "change_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete order",
+      "content_type": 8,
+      "codename": "delete_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view order",
+      "content_type": 8,
+      "codename": "view_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add product",
+      "content_type": 9,
+      "codename": "add_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change product",
+      "content_type": 9,
+      "codename": "change_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete product",
+      "content_type": 9,
+      "codename": "delete_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view product",
+      "content_type": 9,
+      "codename": "view_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add order item",
+      "content_type": 10,
+      "codename": "add_orderitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change order item",
+      "content_type": 10,
+      "codename": "change_orderitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete order item",
+      "content_type": 10,
+      "codename": "delete_orderitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view order item",
+      "content_type": 10,
+      "codename": "view_orderitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add cart item",
+      "content_type": 11,
+      "codename": "add_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change cart item",
+      "content_type": 11,
+      "codename": "change_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete cart item",
+      "content_type": 11,
+      "codename": "delete_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view cart item",
+      "content_type": 11,
+      "codename": "view_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 12,
+      "codename": "add_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 12,
+      "codename": "change_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 12,
+      "codename": "delete_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 12,
+      "codename": "view_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add faq",
+      "content_type": 13,
+      "codename": "add_faq"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change faq",
+      "content_type": 13,
+      "codename": "change_faq"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete faq",
+      "content_type": 13,
+      "codename": "delete_faq"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view faq",
+      "content_type": 13,
+      "codename": "view_faq"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add subscription",
+      "content_type": 14,
+      "codename": "add_subscription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change subscription",
+      "content_type": 14,
+      "codename": "change_subscription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete subscription",
+      "content_type": 14,
+      "codename": "delete_subscription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view subscription",
+      "content_type": 14,
+      "codename": "view_subscription"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add address",
+      "content_type": 15,
+      "codename": "add_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change address",
+      "content_type": 15,
+      "codename": "change_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete address",
+      "content_type": 15,
+      "codename": "delete_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can view address",
+      "content_type": 15,
+      "codename": "view_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add review",
+      "content_type": 16,
+      "codename": "add_review"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change review",
+      "content_type": 16,
+      "codename": "change_review"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete review",
+      "content_type": 16,
+      "codename": "delete_review"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can view review",
+      "content_type": 16,
+      "codename": "view_review"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+      "name": "Can add password recovery",
+      "content_type": 17,
+      "codename": "add_passwordrecovery"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+      "name": "Can change password recovery",
+      "content_type": 17,
+      "codename": "change_passwordrecovery"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+      "name": "Can delete password recovery",
+      "content_type": 17,
+      "codename": "delete_passwordrecovery"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+      "name": "Can view password recovery",
+      "content_type": 17,
+      "codename": "view_passwordrecovery"
+    }
+  },
+
+  {
+    "model": "ecommerce_api.category",
+    "pk": 1,
+    "fields": { "name": "Fresh Flowers", "image": "freshflowers.png" }
+  },
+  {
+    "model": "ecommerce_api.category",
+    "pk": 2,
+    "fields": { "name": "Dried Flowers", "image": "dried_flowers.png" }
+  },
+  {
+    "model": "ecommerce_api.category",
+    "pk": 3,
+    "fields": { "name": "Live Plants", "image": "live_plants.png" }
+  },
+  {
+    "model": "ecommerce_api.category",
+    "pk": 4,
+    "fields": { "name": "Aroma Candles", "image": "aroma_candles.png" }
+  },
+  {
+    "model": "ecommerce_api.category",
+    "pk": 5,
+    "fields": { "name": "Fresheners", "image": "fresheners.png" }
+  },
+  {
+    "model": "ecommerce_api.category",
+    "pk": 23,
+    "fields": { "name": "rose", "image": "classic.webp" }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 14,
+    "fields": {
+      "name": "Blue Harmony",
+      "price": 55.0,
+      "category": 1,
+      "description": "The bohemian spirit and undeniable beauty of \"Blue Harmony\" are hard to resist. Hints of blue, coupled with ivory and lavender, make it a harmonious choice that is both calming and balancing. ItÆs the obvious choice for adding some soft sweetness and tranquility to your space.",
+      "inStock": 100,
+      "image": "64342f30da060985be0af72e_640a0fe3f475267be455035a_DoubleLuna_Carouseljpg20copy202.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 16,
+    "fields": {
+      "name": "Rosy Delight",
+      "price": 120.0,
+      "category": 1,
+      "description": "Large exceptional bouquet composed of a selection of David Austin roses, known for their beauty and subtle fragrance. The bouquet is accompanied by seasonal foliage which will enhance these sublime flowers even",
+      "inStock": 100,
+      "image": "64342f2fe557aa7e71a27760_640a0d9e587af69abd0e9f4c_rue-de-la-rosiere-en4202-p-500.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 17,
+    "fields": {
+      "name": "Dawn's Delight",
+      "price": 100.0,
+      "category": 1,
+      "description": "This exquisite bouquet features a delicate blend of garden roses, fragrant freesias, lisianthus, and dahlias, all artfully arranged with alchemilla for a touch of elegance",
+      "inStock": 100,
+      "image": "64342f2f1d0047afe1dfaeff_640a0dd1910159199045fee7_point-du-jour20copy202.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 18,
+    "fields": {
+      "name": "Serenity",
+      "price": 89.0,
+      "category": 1,
+      "description": "A charming bouquet of understated elegance and harmony, featuring exquisite roses, hydrangeas, and ranunculus in soft, delicate tones.",
+      "inStock": 100,
+      "image": "64342f2f697cd605182dd107_640a036eec3dfd7a162d1fe9_championnet-en20copy202.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 19,
+    "fields": {
+      "name": "Autumn Symphony",
+      "price": 140.0,
+      "category": 1,
+      "description": "A lavish bouquet inspired by the colors of autumn, featuring exquisite roses, freesias, and seasonal blooms, arranged with branches and adorned with beads in a chic vase.",
+      "inStock": 100,
+      "image": "64342f2f6fe1f0d8327df0de_640a09cb9d7a288029c8e387_boulevard-saint-michel20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 20,
+    "fields": {
+      "name": "Snowfall",
+      "price": 70.0,
+      "category": 1,
+      "description": "Indulge in pure elegance with our exquisite bouquet, crafted in shades of pristine white. Lush lilies, roses, nerines, euphorbia and hydrangeas come together in a refined and stunning arrangement.",
+      "inStock": 100,
+      "image": "64342f2e9c41bbb3e74e2eec_63c02adf596e7d25818cd0b6_reine-blanche203.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 21,
+    "fields": {
+      "name": "Rustic Charm",
+      "price": 90.0,
+      "category": 1,
+      "description": "A charming bouquet inspired by the countryside, featuring delicate Ancient Roses, Euphorbia, Asclepias, Celosia, and Crocosmias, beautifully arranged to evoke warmth and comfort.",
+      "inStock": 100,
+      "image": "64342f2e40bbcc5b78cafe5b_6409cda6c602fedec0e7f160_bocage20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 23,
+    "fields": {
+      "name": "Mystical Majesty",
+      "price": 80.0,
+      "category": 1,
+      "description": "A vibrant mix of purple, lilac and pink blossoms. The feminine color palette is pretty without being overtly sweet, much like the rare and magical creature it is named after. Add a touch of purple this season with a mix of lavender-hued roses and sprigs of aster.",
+      "inStock": 100,
+      "image": "64342f2e3919510a13f29dc3_640a0db5f378af150d7c382c_Unicorn_Triple_Carousel20copy202.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 24,
+    "fields": {
+      "name": "Blazing Blossoms",
+      "price": 70.0,
+      "category": 1,
+      "description": "A fiery mix of texture and color, this vibrant bouquet is the perfect fit for the one who's looking for something out of the norm this season. Cool blue tones from thistle fit perfectly alongside bursts of orange roses and bright, golden craspedia. Send this arrangement and watch sparks fly.",
+      "inStock": 100,
+      "image": "64342f2d9c41bb185f4e2ee7_640a0e53405d52850eb6f073_Firecracker_Triple_Carousel202_1.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 25,
+    "fields": {
+      "name": "The Savoy",
+      "price": 55.0,
+      "category": 2,
+      "description": "Dried arrangements like The Savoy blend in anywhere with its stately combination of cream and indigo accents. The feathery textures within this selection of dried grasses and flowers make it a suitable enhancement to a variety of interior decor concepts. The rounded white vase ties everything neatly together, acting as a subtle yet powerful focal point.",
+      "inStock": 100,
+      "image": "64342f30f2de65b606027726_6409ca152ae09679c61f99b5_Savoy_carousel20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 26,
+    "fields": {
+      "name": "The Suri",
+      "price": 44.0,
+      "category": 2,
+      "description": "Lush colors and rich texture set The Suri apart from everything else in the room. This artfully arranged bouquet offers vibrant shades of red and white, creating a contrasting and exquisite effect that breathes new life into any space. Its natural beauty is undeniable. This lovely arrangement is carefully nestled in a sleek and sophisticated white ceramic vase. Note: Because of the natural and hand-dyed nature of these stems, the colors may vary slightly from the ones pictured.",
+      "inStock": 100,
+      "image": "64342f30edb3243b2d587a77_6409cb7a64f2b38f47f7e8f0_1111111Suri_Carousel20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 27,
+    "fields": {
+      "name": "The Naomi",
+      "price": 58.0,
+      "category": 2,
+      "description": "Talk about all the best shades of purple in one place! The Naomi is the dried arrangement for anyone who canÆt get enough of purple in everything. Sprigs of magenta, indigo, and fuchsia create a stunning spectrum of springtime colors. Meanwhile, pops of yellow dried flowers burst through from the background. With so many colors at play, a lovely white vase does the trick to tie everything together.",
+      "inStock": 100,
+      "image": "64342f30391951c846f29e08_6409cc64da14107b9e47c357_Naomi_carousel20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 28,
+    "fields": {
+      "name": "The Heath",
+      "price": 60.0,
+      "category": 2,
+      "description": "Like the tracts of land throughout the English countryside, The Heath is a study in utter brilliance. When you arenÆt riveted by the vision of earthy pampas grass thatÆs been dyed to crimson perfection, youÆll be entranced by the gilded vase. ItÆs modern-meets-avant-garden, a shapely and textural vision that beautifully complements the rich tone of the foliage.",
+      "inStock": 100,
+      "image": "64342f309677e91673ff10b2_6408c60b24ddda5335e4d752_Heath_Carousel20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 29,
+    "fields": {
+      "name": "Frosty Winter",
+      "price": 39.0,
+      "category": 2,
+      "description": "Filled with special stems with natural flower color, because we do not dye our flowers. A bouquet that you will enjoy for a long time. Plus: We have already done the arranging for you, the bouquet can be placed directly in the vase!",
+      "inStock": 100,
+      "image": "64342f2fdab87318cdcd8f53_6409c5fd84239c7d8d2a3e66_3315e903-9d0f-4cf0-99e2-4fb7b04c567120copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 30,
+    "fields": {
+      "name": "Rosy Perfection",
+      "price": 38.0,
+      "category": 2,
+      "description": "Filled with the most beautiful of nature in pink and warm orange tones. In this design you will find, among others, the pink Acroclinium and Curly Ting Ting. The latter looks just as cheerful as its name suggests. And of course, this beautiful bouquet is not complete without the pretty spray rose.",
+      "inStock": 100,
+      "image": "64a050f92a4cfebda6a211d3_41adf0e5-a60f-4ae0-8f56-26e6026572cb_copy-p-500.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 32,
+    "fields": {
+      "name": "The Snake Plant",
+      "price": 137.0,
+      "category": 3,
+      "description": "The Snake Plant is a succulent plant characterized by its sword-like leaves with vibrant yellow edges. It is popular for its easy-going natureùit can tolerate drought and lower lightùand its air-purifying capabilities. Sized to ship best, our large Snake Plant arrives with room to grow as it adapts to your homeÆs conditions.",
+      "inStock": 100,
+      "image": "the-sill_snake-plant-laurentii_large_burbank_white20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 33,
+    "fields": {
+      "name": "Large Monstera Deliciosa",
+      "price": 172.0,
+      "category": 3,
+      "description": "Nicknamed the ôswiss cheese plantö, the quirky Monstera deliciosa is famous for its natural leaf holes. These holes are theorized to maximize sun fleck capture and develop over time as the plant matures. Sized to ship best, our large Monstera arrives with room to grow as it adapts to your homeÆs conditions.",
+      "inStock": 100,
+      "image": "the-sill_monstera-deliciosa_large_burbank_white20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 34,
+    "fields": {
+      "name": "Large Majesty Palm",
+      "price": 200.0,
+      "category": 3,
+      "description": "The Majesty Palm is a popular tropical palm known for its graceful, long green fronds. It is a slow-growing plant, but when well cared for can reach up to 10 feet in height, giving your space instant jungle vibes. Sized to ship best, our large Majesty Palm arrives with room to grow as it adapts to your homeÆs conditions.",
+      "inStock": 100,
+      "image": "The-Sill_Majesty-Palm_Large_Upcycled-Angled-With-Stand_Stonewash_Variant20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 35,
+    "fields": {
+      "name": "Money Tree",
+      "price": 85.0,
+      "category": 3,
+      "description": "Said to bring good luck and fortune, the Money Tree is the perfect plant to add to any room of your home to create good Feng Shui. It is known for its resilience, ease of growth, and fun braided trunk.",
+      "inStock": 100,
+      "image": "the-sill_money-tree_small_bryant-cream20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 36,
+    "fields": {
+      "name": "BirdÆs Nest Fern",
+      "price": 74.0,
+      "category": 3,
+      "description": "The BirdÆs Nest Victoria is a lower-maintenance fern that does great as a houseplant. Rippled, bright green leaves grow from the center of a nest-like crown, hence the name. When growing indoors, these fronds can reach up to two feet in length. This plant thrives in indirect sunlight, loves humidity (try them in your bathroom!), and itÆs pet friendly.",
+      "inStock": 100,
+      "image": "the-sill_fern_birds-nest_variant_medium_grant_black20copy.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 37,
+    "fields": {
+      "name": "Rattan Grapefruit",
+      "price": 48.0,
+      "category": 4,
+      "description": "Uplift your senses with this limited-edition Grapefruit Classic Candle featuring a removable rattan sleeve",
+      "inStock": 100,
+      "image": "nestnewyork_rattan_grapefruit_candle_classic_1_540x.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 38,
+    "fields": {
+      "name": "Himalayan Salt & Rosewater",
+      "price": 76.0,
+      "category": 4,
+      "description": "Ease your mind and soothe your spirit with this scented candle featuring notes of rosewater, geranium, salted amber, and white woods.",
+      "inStock": 100,
+      "image": "nestnewyork_wellness_himalayansaltrosewater_candle_3wick_1_720x.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 39,
+    "fields": {
+      "name": "Charcoal Woods",
+      "price": 78.0,
+      "category": 3,
+      "description": "Evoke the depths of a mysterious forest with this scented candle featuring notes of smoky labdanum, patchouli, and cedarwood combined with charred birchwood and a hint of black truffle.",
+      "inStock": 100,
+      "image": "candle_3wick_1_720x20copy-p-500.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 42,
+    "fields": {
+      "name": "Driftwood",
+      "price": 78.0,
+      "category": 4,
+      "description": "Prepare your mind and body for a peaceful sleep with this scented candle featuring calming, comforting, and soothing notes of chamomile, driftwood, sandalwood, and vanilla bean.",
+      "inStock": 100,
+      "image": "nestnewyork_wellness_driftwoodchamomile_candle_3wick_1_540x.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 43,
+    "fields": {
+      "name": "Charcoal Woods",
+      "price": 78.0,
+      "category": 4,
+      "description": "Evoke the depths of a mysterious forest with this scented candle featuring notes of smoky labdanum, patchouli, and cedarwood combined with charred birchwood and a hint of black truffle.",
+      "inStock": 100,
+      "image": "candle_3wick_1_720x20copy-p-500.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 44,
+    "fields": {
+      "name": "Cedar & Lavender",
+      "price": 64.0,
+      "category": 5,
+      "description": "Create a serene spa-like experience with this Reed Diffuser featuring an herbaceous blend of rosemary, lavender, and sage enhanced with cedar leaves. Matches not required.",
+      "inStock": 100,
+      "image": "rattan_cedarleaflavender_reeddiffuser_1_720x.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 47,
+    "fields": {
+      "name": "Grapefruit",
+      "price": 32.0,
+      "category": 5,
+      "description": "Uplift your senses with this bestselling fragrance, Grapefruit. This Reed Diffuser features the iconic scentÆs exhilarating blend of pink pomelo grapefruit and watery green notes with lily of the valley and coriander blossom. Matches not required.",
+      "inStock": 100,
+      "image": "grapefruit_reeddiffuser_1_540x.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 48,
+    "fields": {
+      "name": "Ocean Mist",
+      "price": 58.0,
+      "category": 5,
+      "description": "Escape to the seaside with this Reed Diffuser featuring the refreshing essence of a gentle ocean mist combined with hints of sea salt, white tea, and coconut. Matches not required.",
+      "inStock": 100,
+      "image": "nestnewyork_oceanmistseasalt_reeddiffuser.webp"
+    }
+  },
+  {
+    "model": "ecommerce_api.product",
+    "pk": 52,
+    "fields": {
+      "name": "white rose",
+      "price": 50.0,
+      "category": 23,
+      "description": "white roses",
+      "inStock": 40,
+      "image": "reine-blanche-p-500.jpeg"
+    }
+  },
+  { "model": "ecommerce_api.cart", "pk": 1, "fields": { "user": 2 } },
+  { "model": "ecommerce_api.cart", "pk": 2, "fields": { "user": 3 } },
+  { "model": "ecommerce_api.cart", "pk": 3, "fields": { "user": 4 } },
+  { "model": "ecommerce_api.cart", "pk": 4, "fields": { "user": 1 } },
+  { "model": "ecommerce_api.cart", "pk": 5, "fields": { "user": 5 } },
+  { "model": "ecommerce_api.cart", "pk": 6, "fields": { "user": 6 } },
+  { "model": "ecommerce_api.cart", "pk": 8, "fields": { "user": 8 } },
+  { "model": "ecommerce_api.cart", "pk": 9, "fields": { "user": 9 } },
+  { "model": "ecommerce_api.cart", "pk": 10, "fields": { "user": 10 } },
+  {
+    "model": "ecommerce_api.cartitem",
+    "pk": 68,
+    "fields": { "cart": 2, "product": 16, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.cartitem",
+    "pk": 76,
+    "fields": { "cart": 6, "product": 30, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.cartitem",
+    "pk": 81,
+    "fields": { "cart": 4, "product": 14, "quantity": 9.0 }
+  },
+  {
+    "model": "ecommerce_api.cartitem",
+    "pk": 82,
+    "fields": { "cart": 2, "product": 28, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.cartitem",
+    "pk": 83,
+    "fields": { "cart": 2, "product": 18, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.cartitem",
+    "pk": 84,
+    "fields": { "cart": 9, "product": 14, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.cartitem",
+    "pk": 85,
+    "fields": { "cart": 6, "product": 17, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.cartitem",
+    "pk": 88,
+    "fields": { "cart": 6, "product": 35, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.cartitem",
+    "pk": 89,
+    "fields": { "cart": 4, "product": 52, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.cartitem",
+    "pk": 90,
+    "fields": { "cart": 6, "product": 47, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 19,
+    "fields": {
+      "recipientName": "onise",
+      "recipientPhoneNumber": "56126516",
+      "dateOfDelivery": "2024-12-25",
+      "deliveryTime": "15:52:00",
+      "street": "fdgsdfgsfdg",
+      "houseNumber": "4561",
+      "total": 546.0,
+      "user": 1
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 20,
+    "fields": {
+      "recipientName": "onise",
+      "recipientPhoneNumber": "56126516",
+      "dateOfDelivery": "2024-12-25",
+      "deliveryTime": "15:52:00",
+      "street": "fdgsdfgsfdg",
+      "houseNumber": "4561",
+      "total": 546.0,
+      "user": 2
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 24,
+    "fields": {
+      "recipientName": "we",
+      "recipientPhoneNumber": "123",
+      "dateOfDelivery": "2024-09-18",
+      "deliveryTime": "21:01:00",
+      "street": "wewe",
+      "houseNumber": "123",
+      "total": 55.0,
+      "user": 3
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 25,
+    "fields": {
+      "recipientName": "fdfd",
+      "recipientPhoneNumber": "123",
+      "dateOfDelivery": "2024-09-26",
+      "deliveryTime": "00:05:00",
+      "street": "sfsf",
+      "houseNumber": "123",
+      "total": 120.0,
+      "user": 3
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 26,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-04",
+      "deliveryTime": "20:15:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 535.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 27,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-04",
+      "deliveryTime": "20:15:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 535.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 28,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-08-31",
+      "deliveryTime": "20:57:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 64.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 29,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-05",
+      "deliveryTime": "20:58:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 140.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 30,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-04",
+      "deliveryTime": "21:00:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 462.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 31,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-04",
+      "deliveryTime": "21:07:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 373.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 32,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-04",
+      "deliveryTime": "01:13:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 344.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 33,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-04",
+      "deliveryTime": "01:13:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 344.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 34,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-06",
+      "deliveryTime": "21:09:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 1127.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 35,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-06",
+      "deliveryTime": "21:09:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 1127.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 36,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-05",
+      "deliveryTime": "21:11:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 1127.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 37,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-05",
+      "deliveryTime": "21:11:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 1127.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 38,
+    "fields": {
+      "recipientName": "sdsd",
+      "recipientPhoneNumber": "123",
+      "dateOfDelivery": "2024-09-20",
+      "deliveryTime": "02:16:00",
+      "street": "sfsf",
+      "houseNumber": "123",
+      "total": 329.0,
+      "user": 3
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 39,
+    "fields": {
+      "recipientName": "sdsd",
+      "recipientPhoneNumber": "123",
+      "dateOfDelivery": "2024-09-20",
+      "deliveryTime": "02:16:00",
+      "street": "sfsf",
+      "houseNumber": "123",
+      "total": 329.0,
+      "user": 3
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 40,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-05",
+      "deliveryTime": "23:27:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 828.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 41,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-05",
+      "deliveryTime": "15:35:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 594.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 42,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-05",
+      "deliveryTime": "15:35:00",
+      "street": "Chavchavadze aven.",
+      "houseNumber": "223",
+      "total": 594.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 43,
+    "fields": {
+      "recipientName": "katerina",
+      "recipientPhoneNumber": "577050456540",
+      "dateOfDelivery": "2024-09-19",
+      "deliveryTime": "19:37:00",
+      "street": "jjj",
+      "houseNumber": "50",
+      "total": 843.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 44,
+    "fields": {
+      "recipientName": "l",
+      "recipientPhoneNumber": "555",
+      "dateOfDelivery": "2024-09-14",
+      "deliveryTime": "16:41:00",
+      "street": "ll",
+      "houseNumber": "50",
+      "total": 545.0,
+      "user": 1
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 45,
+    "fields": {
+      "recipientName": "Katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-20",
+      "deliveryTime": "07:00:00",
+      "street": "Ttt",
+      "houseNumber": "567",
+      "total": 563.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.order",
+    "pk": 46,
+    "fields": {
+      "recipientName": "Katerina",
+      "recipientPhoneNumber": "577054010",
+      "dateOfDelivery": "2024-09-20",
+      "deliveryTime": "07:00:00",
+      "street": "Ttt",
+      "houseNumber": "567",
+      "total": 563.0,
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 13,
+    "fields": { "product": 14, "order": 24, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 14,
+    "fields": { "product": 16, "order": 25, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 15,
+    "fields": { "product": 14, "order": 26, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 16,
+    "fields": { "product": 19, "order": 26, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 17,
+    "fields": { "product": 24, "order": 26, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 18,
+    "fields": { "product": 28, "order": 26, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 19,
+    "fields": { "product": 14, "order": 27, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 20,
+    "fields": { "product": 19, "order": 27, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 21,
+    "fields": { "product": 24, "order": 27, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 22,
+    "fields": { "product": 28, "order": 27, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 23,
+    "fields": { "product": 44, "order": 28, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 24,
+    "fields": { "product": 44, "order": 29, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 25,
+    "fields": { "product": 38, "order": 29, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 26,
+    "fields": { "product": 44, "order": 30, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 27,
+    "fields": { "product": 33, "order": 30, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 28,
+    "fields": { "product": 36, "order": 30, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 29,
+    "fields": { "product": 43, "order": 30, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 30,
+    "fields": { "product": 44, "order": 31, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 31,
+    "fields": { "product": 27, "order": 31, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 32,
+    "fields": { "product": 30, "order": 31, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 33,
+    "fields": { "product": 32, "order": 31, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 36,
+    "fields": { "product": 23, "order": 32, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 39,
+    "fields": { "product": 23, "order": 33, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 40,
+    "fields": { "product": 38, "order": 34, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 41,
+    "fields": { "product": 33, "order": 34, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 42,
+    "fields": { "product": 36, "order": 34, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 43,
+    "fields": { "product": 43, "order": 34, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 44,
+    "fields": { "product": 27, "order": 34, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 45,
+    "fields": { "product": 30, "order": 34, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 46,
+    "fields": { "product": 32, "order": 34, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 49,
+    "fields": { "product": 23, "order": 34, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 50,
+    "fields": { "product": 38, "order": 35, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 51,
+    "fields": { "product": 33, "order": 35, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 52,
+    "fields": { "product": 36, "order": 35, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 53,
+    "fields": { "product": 43, "order": 35, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 54,
+    "fields": { "product": 27, "order": 35, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 55,
+    "fields": { "product": 30, "order": 35, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 56,
+    "fields": { "product": 32, "order": 35, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 59,
+    "fields": { "product": 23, "order": 35, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 60,
+    "fields": { "product": 38, "order": 36, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 61,
+    "fields": { "product": 33, "order": 36, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 62,
+    "fields": { "product": 36, "order": 36, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 63,
+    "fields": { "product": 43, "order": 36, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 64,
+    "fields": { "product": 27, "order": 36, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 65,
+    "fields": { "product": 30, "order": 36, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 66,
+    "fields": { "product": 32, "order": 36, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 69,
+    "fields": { "product": 23, "order": 36, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 70,
+    "fields": { "product": 38, "order": 37, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 71,
+    "fields": { "product": 33, "order": 37, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 72,
+    "fields": { "product": 36, "order": 37, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 73,
+    "fields": { "product": 43, "order": 37, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 74,
+    "fields": { "product": 27, "order": 37, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 75,
+    "fields": { "product": 30, "order": 37, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 76,
+    "fields": { "product": 32, "order": 37, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 79,
+    "fields": { "product": 23, "order": 37, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 80,
+    "fields": { "product": 16, "order": 38, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 81,
+    "fields": { "product": 28, "order": 38, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 82,
+    "fields": { "product": 18, "order": 38, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 83,
+    "fields": { "product": 16, "order": 39, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 84,
+    "fields": { "product": 28, "order": 39, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 85,
+    "fields": { "product": 18, "order": 39, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 86,
+    "fields": { "product": 38, "order": 40, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 87,
+    "fields": { "product": 43, "order": 40, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 88,
+    "fields": { "product": 30, "order": 40, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 91,
+    "fields": { "product": 23, "order": 40, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 92,
+    "fields": { "product": 17, "order": 40, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 94,
+    "fields": { "product": 30, "order": 41, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 97,
+    "fields": { "product": 17, "order": 41, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 99,
+    "fields": { "product": 30, "order": 42, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 102,
+    "fields": { "product": 17, "order": 42, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 104,
+    "fields": { "product": 30, "order": 43, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 107,
+    "fields": { "product": 17, "order": 43, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 108,
+    "fields": { "product": 19, "order": 43, "quantity": 2.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 109,
+    "fields": { "product": 35, "order": 43, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 110,
+    "fields": { "product": 14, "order": 44, "quantity": 9.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 111,
+    "fields": { "product": 52, "order": 44, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 112,
+    "fields": { "product": 30, "order": 45, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 115,
+    "fields": { "product": 17, "order": 45, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 116,
+    "fields": { "product": 35, "order": 45, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 117,
+    "fields": { "product": 30, "order": 46, "quantity": 3.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 120,
+    "fields": { "product": 17, "order": 46, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.orderitem",
+    "pk": 121,
+    "fields": { "product": 35, "order": 46, "quantity": 1.0 }
+  },
+  {
+    "model": "ecommerce_api.subscription",
+    "pk": 1,
+    "fields": {
+      "image": "subscription25.webp",
+      "category": "Classic",
+      "price": 45.0,
+      "delivery": "Free Delivery",
+      "theBest": "Best for a budget",
+      "firstDelivery": "Glass vase with first delivery",
+      "firstDelivery2": "",
+      "saveUp": 25.0
+    }
+  },
+  {
+    "model": "ecommerce_api.subscription",
+    "pk": 3,
+    "fields": {
+      "image": "subscription30.webp",
+      "category": "Luxe",
+      "price": 90.0,
+      "delivery": "Free Delivery",
+      "theBest": "Premium arrangement",
+      "firstDelivery": "Glass vase with first delivery",
+      "firstDelivery2": "Luxury candle with your first delivery",
+      "saveUp": 30.0
+    }
+  },
+  {
+    "model": "ecommerce_api.subscription",
+    "pk": 21,
+    "fields": {
+      "image": "seasonal.webp",
+      "category": "Seasonal",
+      "price": 65.0,
+      "delivery": "Free Delivery",
+      "theBest": "Best seasonal selections",
+      "firstDelivery": "Best seasonal selections",
+      "firstDelivery2": "Glass vase with first delivery",
+      "saveUp": 28.0
+    }
+  },
+  {
+    "model": "ecommerce_api.faq",
+    "pk": 1,
+    "fields": {
+      "question": "How often will I get a new bouquet?",
+      "answer": "Our subscriptions allow you to select a delivery frequency that best suits your needs -  either weekly, bi-weekly, or monthly. You can also choose the number of deliveries for your subscription. Choose any combination that works for you!"
+    }
+  },
+  {
+    "model": "ecommerce_api.faq",
+    "pk": 2,
+    "fields": {
+      "question": "Can i send subscription like as a gift ?",
+      "answer": "Depending on the day you first choose for your flower delivery, we will deliver on that day for all future deliveries. So if you get your flowers on Thursday every other week, you will get another flower delivery two weeks later on Thursday."
+    }
+  },
+  {
+    "model": "ecommerce_api.faq",
+    "pk": 14,
+    "fields": {
+      "question": "Can I suspend my subscription to flowers ?",
+      "answer": "Depending on the day you first choose for your flower delivery, we will deliver on that day for all future deliveries. So if you get your flowers on Thursday every other week, you will get another flower delivery two weeks later on Thursday."
+    }
+  },
+  {
+    "model": "ecommerce_api.faq",
+    "pk": 15,
+    "fields": {
+      "question": "Can I change the shipping address ?",
+      "answer": "Yes, you can! After you create an account, you can log in and adjust your settings to pause the next delivery and let us know the next best delivery date."
+    }
+  },
+  {
+    "model": "ecommerce_api.faq",
+    "pk": 17,
+    "fields": {
+      "question": "What day will the subscription bouquet come?",
+      "answer": "Depending on the day you first choose for your flower delivery, we will deliver on that day for all future deliveries. So if you get your flowers on Thursday every other week, you will get another flower delivery two weeks later on Thursday."
+    }
+  },
+  {
+    "model": "ecommerce_api.address",
+    "pk": 1,
+    "fields": {
+      "city": "Telavi",
+      "houseNumber": "223",
+      "street": "Chavchavadze aven.",
+      "note": "hey",
+      "user": 6
+    }
+  },
+  {
+    "model": "ecommerce_api.review",
+    "pk": 6,
+    "fields": { "text": "Test Review", "name": "KatrinaZuus" }
+  },
+  {
+    "model": "ecommerce_api.review",
+    "pk": 7,
+    "fields": { "text": "Test Review", "name": "KatrinaZuus" }
+  },
+  {
+    "model": "ecommerce_api.review",
+    "pk": 8,
+    "fields": { "text": "Test Review", "name": "KatrinaZuus" }
+  },
+  {
+    "model": "ecommerce_api.review",
+    "pk": 9,
+    "fields": { "text": "Test Review", "name": "KatrinaZuus" }
+  },
+  {
+    "model": "ecommerce_api.review",
+    "pk": 10,
+    "fields": { "text": "Test Review", "name": "KatrinaZuus" }
+  },
+  {
+    "model": "ecommerce_api.review",
+    "pk": 11,
+    "fields": { "text": "Test Review", "name": "KatrinaZuus" }
+  },
+
+  {
+    "model": "users.passwordrecovery",
+    "pk": 1,
+    "fields": {
+      "user": 6,
+      "recovery_code": "bnsANH",
+      "created_at": "2024-09-02T16:06:23.163Z",
+      "expires_at": "2024-09-02T16:11:23.162Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 2,
+    "fields": {
+      "user": 6,
+      "recovery_code": "EFoIOC",
+      "created_at": "2024-09-02T16:07:13.311Z",
+      "expires_at": "2024-09-02T16:12:13.310Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 3,
+    "fields": {
+      "user": 6,
+      "recovery_code": "N3yxXN",
+      "created_at": "2024-09-02T16:08:14.162Z",
+      "expires_at": "2024-09-02T16:13:14.161Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 4,
+    "fields": {
+      "user": 6,
+      "recovery_code": "bqrXuv",
+      "created_at": "2024-09-02T16:11:43.755Z",
+      "expires_at": "2024-09-02T16:16:43.754Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 5,
+    "fields": {
+      "user": 6,
+      "recovery_code": "KvGhzh",
+      "created_at": "2024-09-02T16:40:13.752Z",
+      "expires_at": "2024-09-02T16:45:13.752Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 6,
+    "fields": {
+      "user": 3,
+      "recovery_code": "jJg2wC",
+      "created_at": "2024-09-02T16:57:14.665Z",
+      "expires_at": "2024-09-02T17:02:14.664Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 7,
+    "fields": {
+      "user": 3,
+      "recovery_code": "fVP0Se",
+      "created_at": "2024-09-02T16:57:49.891Z",
+      "expires_at": "2024-09-02T17:02:49.890Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 8,
+    "fields": {
+      "user": 3,
+      "recovery_code": "zaObfd",
+      "created_at": "2024-09-02T16:58:21.598Z",
+      "expires_at": "2024-09-02T17:03:21.598Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 9,
+    "fields": {
+      "user": 3,
+      "recovery_code": "hh4uLn",
+      "created_at": "2024-09-02T16:58:48.189Z",
+      "expires_at": "2024-09-02T17:03:48.188Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 10,
+    "fields": {
+      "user": 3,
+      "recovery_code": "3t3Wwj",
+      "created_at": "2024-09-02T16:58:51.104Z",
+      "expires_at": "2024-09-02T17:03:51.103Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 11,
+    "fields": {
+      "user": 3,
+      "recovery_code": "m2aId8",
+      "created_at": "2024-09-02T16:59:24.963Z",
+      "expires_at": "2024-09-02T17:04:24.963Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 12,
+    "fields": {
+      "user": 3,
+      "recovery_code": "WRW3z2",
+      "created_at": "2024-09-02T16:59:30.093Z",
+      "expires_at": "2024-09-02T17:04:30.092Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 13,
+    "fields": {
+      "user": 3,
+      "recovery_code": "y2kIwX",
+      "created_at": "2024-09-02T16:59:57.995Z",
+      "expires_at": "2024-09-02T17:04:57.994Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 14,
+    "fields": {
+      "user": 3,
+      "recovery_code": "bKtYQJ",
+      "created_at": "2024-09-02T17:01:41.631Z",
+      "expires_at": "2024-09-02T17:06:41.631Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 15,
+    "fields": {
+      "user": 3,
+      "recovery_code": "DPbTRC",
+      "created_at": "2024-09-02T17:10:13.173Z",
+      "expires_at": "2024-09-02T17:15:13.172Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 16,
+    "fields": {
+      "user": 3,
+      "recovery_code": "LH80Ld",
+      "created_at": "2024-09-02T17:12:01.742Z",
+      "expires_at": "2024-09-02T17:17:01.741Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 17,
+    "fields": {
+      "user": 3,
+      "recovery_code": "aail7a",
+      "created_at": "2024-09-02T19:12:20.787Z",
+      "expires_at": "2024-09-02T19:17:20.786Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 18,
+    "fields": {
+      "user": 6,
+      "recovery_code": "vEbdra",
+      "created_at": "2024-09-03T17:19:03.245Z",
+      "expires_at": "2024-09-03T17:24:03.244Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 19,
+    "fields": {
+      "user": 10,
+      "recovery_code": "RGlEEO",
+      "created_at": "2024-09-04T09:31:09.253Z",
+      "expires_at": "2024-09-04T09:36:09.252Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 20,
+    "fields": {
+      "user": 3,
+      "recovery_code": "DCj3Xx",
+      "created_at": "2024-09-05T16:06:43.124Z",
+      "expires_at": "2024-09-05T16:11:43.124Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 21,
+    "fields": {
+      "user": 3,
+      "recovery_code": "PGh5HG",
+      "created_at": "2024-09-05T16:06:45.392Z",
+      "expires_at": "2024-09-05T16:11:45.391Z"
+    }
+  },
+  {
+    "model": "users.passwordrecovery",
+    "pk": 22,
+    "fields": {
+      "user": 3,
+      "recovery_code": "zfkb3n",
+      "created_at": "2024-09-11T21:08:58.718Z",
+      "expires_at": "2024-09-11T21:13:58.717Z"
+    }
+  }
+]
