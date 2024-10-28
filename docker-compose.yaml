@@ -21,7 +21,7 @@ services:
       - redis
       - db
     networks:
-      - default
+      - shared
 
   nginx:
     image: nginx:latest
@@ -39,7 +39,7 @@ services:
       - certbot
 
     networks:
-      - default
+      - shared
 
   certbot:
     image: certbot/certbot
@@ -54,10 +54,10 @@ services:
     expose:
       - 6379
     networks:
-      - default
+      - shared
 
 networks:
-  default:
+  shared:
     driver: bridge
 
 volumes:
