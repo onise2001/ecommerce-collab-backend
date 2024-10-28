@@ -45,7 +45,7 @@ services:
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email babulashvili.vaja@gmail.com -d ecommerce-collab.duckdns.org --agree-tos
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email babulashvili.vaja@gmail.com -d ecommerce-collab.duckdns.org --agree-tos  --non-interactive
 
   redis:
     image: redis:latest
